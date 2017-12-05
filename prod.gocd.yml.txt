@@ -1,0 +1,31 @@
+#prod.gocd.yaml
+format_version: 1
+environments:
+  TestEnviroment:
+    environment_variables:
+      TASP_SERVER_NSO: "http://192.168.38.13"
+      TASP_PORT_NSO: 8080
+    pipelines:
+      - TestGdcOSS
+      
+pipelines:
+  TestGdcOSS: # definition of yaml-example pipeline
+    group: yaml-example
+    label_template: "${COUNT}"
+    locking: off
+    materials:
+      tasp: # this is the name of material
+        # keyword git says about type of material and url at once
+        git: git@gitlab.heart.cic.wh.telefonica:GDC_NSO/pipelines_repository.git
+        branch: master
+    
+    stages: # list of stages in order
+      - TestStage: # name of stage
+          clean_workspace: true
+          jobs:
+            TestJob: # name of the job
+              tasks: # ordered list of tasks to execute in job csharp
+                - script: |
+                    python test.py
+                    true
+      
