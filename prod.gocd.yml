@@ -11,13 +11,13 @@ environments:
 pipelines:
   TestGdcOSS: # definition of yaml-example pipeline
     group: grupo_pipelinesTest
-    label_template: "${COUNT}"
+    label_template: "0.0.${COUNT}-${tasp[:7]}"
     locking: off
     materials:
       tasp: # this is the name of material
         # keyword git says about type of material and url at once
-        git: https://portaldevops.heart.cic.wh.telefonica/gitlab/GDC_NSO/itbs-services-services-eline.git
-        branch: jl_develop
+        git: git@gitlab.heart.cic.wh.telefonica:GDC_NSO/itbs-cfs-interpoi.git
+        branch: develop
     
     stages: # list of stages in order
       - TestStage: # name of stage
