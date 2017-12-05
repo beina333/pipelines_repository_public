@@ -10,7 +10,7 @@ environments:
       
 pipelines:
   TestGdcOSS: # definition of yaml-example pipeline
-    group: yaml-example
+    group: gruop_pipelinesTest
     label_template: "${COUNT}"
     locking: off
     materials:
