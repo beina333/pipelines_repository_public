@@ -19,9 +19,9 @@ pipelines:
     stages: # list of stages in order
       - TestStage: # name of stage
           clean_workspace: true
-          jobs:
-            TestJob: # name of the job
-              tasks: # ordered list of tasks to execute in job csharp
+          jobs:    
+             defaultJob: # name of the job
+               tasks: # ordered list of tasks to execute in job csharp
                 - exec: # indicates type of task     
                    command: echo              
                    arguments:             
