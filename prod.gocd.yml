@@ -7,7 +7,7 @@ environments:
       
 pipelines:
   TestGdcOSS: # definition of yaml-example pipeline
-    group: grupo_pipelinesTest
+    group: grupoTestBea
     label_template: "${COUNT}"
     locking: off
     materials:
