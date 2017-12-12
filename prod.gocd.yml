@@ -2,21 +2,18 @@
 format_version: 1
 environments:
   TestEnviroment:
-    environment_variables:
-      TASP_SERVER_NSO: "http://192.168.38.13"
-      TASP_PORT_NSO: 8080
     pipelines:
       - TestGdcOSS
       
 pipelines:
   TestGdcOSS: # definition of yaml-example pipeline
     group: grupo_pipelinesTest
-    label_template: "0.0.${COUNT}-${tasp[:7]}"
+    label_template: "${mygit[:8]}"
     locking: off
     materials:
       tasp: # this is the name of material
         # keyword git says about type of material and url at once
-        git: git@gitlab.heart.cic.wh.telefonica:GDC_NSO/itbs-cfs-interpoi.git
+        git: git@gitlab.heart.cic.wh.telefonica:OSS/DDoS_1607.git
         branch: develop
     
     stages: # list of stages in order
@@ -25,7 +22,9 @@ pipelines:
           jobs:
             TestJob: # name of the job
               tasks: # ordered list of tasks to execute in job csharp
-                - script: |
-                    print("hello chicos")
-                    true
+                - exec: # indicates type of task     
+                   command: echo              
+                   arguments:             
+                   - "Hello, World!"
+
       
