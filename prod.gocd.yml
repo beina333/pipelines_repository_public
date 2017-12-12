@@ -14,7 +14,7 @@ pipelines:
       mygit: # this is the name of material
         # keyword git says about type of material and url at once
         git: git@gitlab.heart.cic.wh.telefonica:OSS/DDoS_1607.git
-        branch: develop
+        branch: master
     
     stages: # list of stages in order
       - TestStage: # name of stage
