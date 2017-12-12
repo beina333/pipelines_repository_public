@@ -8,7 +8,7 @@ environments:
 pipelines:
   TestGdcOSS: # definition of yaml-example pipeline
     group: grupo_pipelinesTest
-    label_template: "${mygit[:8]}"
+    label_template: "${COUNT}"
     locking: off
     materials:
       mygit: # this is the name of material
